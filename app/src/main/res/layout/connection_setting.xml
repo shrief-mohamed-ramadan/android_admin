@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
+    <!--Cloud Setting-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cloud Setting"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/white"/>
+    <EditText
+        android:id="@+id/ip_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:hint="Cloud IP"
+        style="@style/edittext_style"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/username_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/ip_cloud"
+        android:layout_below="@+id/ip_cloud"
+        android:layout_marginTop="13dp"
+        android:hint="Cloud UserName"
+        android:inputType="textPersonName"
+        style="@style/edittext_style"
+ />
+
+    <EditText
+        android:id="@+id/database_name_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/username_cloud"
+        android:layout_below="@+id/username_cloud"
+        android:layout_marginTop="13dp"
+        android:hint="Database  Name"
+        style="@style/edittext_style"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/database_password_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/database_name_cloud"
+        android:layout_below="@+id/database_name_cloud"
+        android:layout_marginTop="13dp"
+        android:hint="Password"
+        style="@style/edittext_style"
+        android:inputType="textPersonName" />
+    <View
+        android:id="@+id/line_break"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="50sp"
+        android:layout_below="@+id/database_password_cloud"
+        android:background="@color/colorPrimaryDark" />
+    <!--Network Setting-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Network Setting"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/line_break"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/network_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/database_password_cloud"
+        android:layout_below="@+id/database_password_cloud"
+        android:layout_marginTop="100dp"
+        android:inputType="textPersonName"
+        android:hint="Network IP"
+        style="@style/edittext_style"/>
+
+    <EditText
+        android:id="@+id/network_databasename"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/network_ip"
+        android:layout_below="@+id/network_ip"
+        android:layout_marginTop="13dp"
+        android:inputType="textPersonName"
+        android:hint="Network Databasename"
+        style="@style/edittext_style"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/network_databasename"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        style="@style/button_style"
+        android:text="Save" />
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Basic App Color-->
+    <color name="colorPrimary">#2196f3</color>
+    <color name="colorPrimaryDark">#1f7fca</color>
+    <color name="colorAccent">#2196f3</color>
+        <!--gradient Background color-->
+    <color name="endcolor_gradient">#ffffff</color>
+    <color name="startcolor_gradient">#1b8de8</color>
+        <!--Basic colors-->
+    <color name="white">#ffffff</color>
+    <color name="dark_gray">#505050</color>
+    <color name="light_green">#52d568</color>
+    <color name="light_yellow">#fec939</color>
+    <color name="light_red">#f81d45</color>
+    <color name="light_blue">#57c8f9</color>
+    <color name="high_red">#ef6e6a</color>
+</resources>

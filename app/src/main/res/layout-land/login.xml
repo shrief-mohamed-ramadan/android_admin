@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:layout_gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/Header_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conference Management"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:fontFamily="serif"
+        android:textColor="@color/white"
+        android:height="100dp"/>
+    <EditText
+        android:id="@+id/login_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        style="@style/edittext_style"
+        android:drawableLeft="@drawable/username_logo"
+        android:textColor="@color/dark_gray"
+        android:drawablePadding="9dp"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/login_pass"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:layout_alignStart="@+id/login_name"
+        android:layout_below="@+id/login_name"
+        android:layout_marginTop="25dp"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        style="@style/edittext_style"
+        android:drawablePadding="9dp"
+        android:textColor="@color/dark_gray"
+        android:layout_centerHorizontal="true"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/login_bt"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Login"
+        style="@style/button_style"/>
+</RelativeLayout>
