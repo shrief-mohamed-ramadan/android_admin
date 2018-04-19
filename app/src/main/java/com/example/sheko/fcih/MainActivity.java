@@ -13,7 +13,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.users_table_activity);
+
+        ResultSet rs= null;
+        TableLayout table = (TableLayout) findViewById(R.id.user_table_id);
+        Design_manager.Generate_Table(rs , table , getApplicationContext());
     }
 
 }

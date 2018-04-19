@@ -15,4 +15,7 @@
     <color name="light_red">#f81d45</color>
     <color name="light_blue">#57c8f9</color>
     <color name="high_red">#ef6e6a</color>
+    <color name="light2_gray">#F5F5F5</color>
+    <color name="light1_gray">#E0E0E0</color>
+    <color name="correct_color">#28a745</color>
 </resources>
