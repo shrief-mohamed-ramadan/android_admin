@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         ResultSet rs= null;
         TableLayout table = (TableLayout) findViewById(R.id.user_table_id);
         Design_manager.Generate_Table(rs , table , getApplicationContext());
+        Database obj = new Database();
     }
 
 }
