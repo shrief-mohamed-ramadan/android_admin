@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/add_doc_back">
+
+    <EditText
+        android:id="@+id/edit_text_id"
+        style="@style/edittext_style"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/edit_bt"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/edit_text_id"
+        android:layout_centerHorizontal="true"
+        android:text="Edit"
+        android:layout_marginBottom="10dp"
+        style="@style/button_style"/>
+
+
+</RelativeLayout>
