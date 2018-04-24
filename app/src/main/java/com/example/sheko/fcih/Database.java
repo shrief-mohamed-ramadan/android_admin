@@ -19,7 +19,7 @@ import java.sql.Statement;
  * @author Talaat
  */
 public class Database {
-    static boolean global_flag = false;
+    static boolean Connected = false;
     Connection cn;
     Statement st;
     //specify IP->0 DB Name->1
@@ -82,10 +82,10 @@ public class Database {
         try {
             CLOUD = "jdbc:mysql://" + CLOUD_info[0] + "/" + CLOUD_info[1] + "?characterEncoding=utf8";
             this.cn = DriverManager.getConnection(CLOUD, CLOUD_info[2], CLOUD_info[3]);
-            Log.w("connected","passed");
+            Connected = true;
             isCloud = true; // used to know if it' success to access cloud
         } catch (Exception ex) {
-            Log.w("connect to cloud",ex);
+            Connected = false;
         }
     }
 
@@ -93,8 +93,9 @@ public class Database {
         try {
             LAN = "jdbc:mysql://" + LAN_info[0] + "/" + LAN_info[1] + "?characterEncoding=utf8";
             this.cn = DriverManager.getConnection(LAN);
+            Connected = true;
         } catch (Exception ex) {
-
+            Connected = false;
         }
     }
 

@@ -6,11 +6,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -19,11 +25,13 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import android.widget.ListView;
 
 /**
  * Created by Sheko on 4/18/2018.
@@ -31,9 +39,13 @@ import java.util.List;
 
 //Class for managing Desing (create table - frame - ...)
 
-public class Design_manager {
+public class Design_manager extends AppCompatActivity {
     public static ArrayList<String> search_items = new ArrayList<String>(10);
     public static final Admin admin = new Admin();
+    public  ArrayList<String> Users_name = new ArrayList<String>(5);
+    public  ArrayList<String> IPs = new ArrayList<String>(5);
+    private Context context;
+
     /*
      * Function: Generate_Table
      * ----------------------------
@@ -272,4 +284,98 @@ public class Design_manager {
         });
     }//end generate add_doctor_frame
     /*************************************************************************************************************/
+    //search in users
+    public void Search_users(CharSequence username , ListView user_list, ResultSet rs){
+        Users_name = Getting_Names("username" , rs);
+        IPs = Getting_Names("IP" , rs);
+        for(int count = 0;count <  Users_name.size() ; count++){
+
+            if(Users_name.get(count).contains(username)); // do nothing
+            else{//delete the usernames
+
+                Users_name.remove(count);
+                IPs.remove(count);
+                count--;
+            }
+        }
+        CustomAdapter custom = new CustomAdapter();
+        user_list.setAdapter(custom);
+    }
+    public  void generate_users_list(ResultSet result , ListView user_list ,Context cn){
+        context = cn;
+        Users_name = Getting_Names("username" , result);
+        IPs = Getting_Names("IP",result);
+        CustomAdapter custom = new CustomAdapter();
+        user_list.setAdapter(custom);
+    }
+    public  ArrayList Getting_Names(String colm_name , ResultSet rs){
+        ArrayList<String> temp = new ArrayList<String>(5);
+
+            try {
+                rs.beforeFirst();
+                while(rs.next()) {
+
+                    temp.add(rs.getString(colm_name));
+
+                }
+            } catch (Exception e) {
+                Log.w("talaat",e);
+                e.printStackTrace();
+            }
+
+        return temp;
+    }
+    //class for fill the users list
+    class CustomAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            try {
+
+                return Users_name.size();
+            }
+            catch(Exception ex){
+                Log.w("getcount",String.valueOf(Users_name.size()) + " and "+ String.valueOf(Users_name.size()));
+            }
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+            convertView = inflater.inflate(R.layout.user_custom_list_view, null);
+
+            ImageView image = convertView.findViewById(R.id.imageView);
+            TextView username = convertView.findViewById(R.id.textView_username);
+            TextView ip = convertView.findViewById(R.id.textView_ip);
+            try {
+                String user_name = Users_name.get(position);
+                String IP = IPs.get(position);
+
+
+                    if (IP.equals("none")) {
+                        image.setImageResource(R.drawable.offline_icon);
+                        ip.setText("Offline");
+                    } else {
+                        image.setImageResource(R.drawable.online_icon);
+                        ip.setText(IP);
+                    }
+                    username.setText(user_name);
+
+            }
+            catch(Exception ex){
+                Log.w("getview",ex);
+            }
+            return convertView;
+        }
+    }
 }//end Class Design_manager
