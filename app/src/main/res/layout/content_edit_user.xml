@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.sheko.fcih.Edit_user"
+    tools:showIn="@layout/activity_edit_user">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/Add_User"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient">
+
+            <EditText
+                android:id="@+id/user_name"
+                style="@style/edittext_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/user_pass"
+                android:layout_alignStart="@+id/user_pass"
+                android:layout_marginBottom="40dp"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:drawablePadding="10dp"
+                android:inputType="textPersonName"
+                android:textColor="@color/dark_gray" />
+
+            <EditText
+                android:id="@+id/user_pass"
+                style="@style/edittext_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/valid_check"
+                android:layout_alignStart="@+id/valid_check"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:drawablePadding="10dp"
+                android:hint="New Password"
+                android:inputType="textPassword"
+                android:textColor="@color/dark_gray" />
+
+            <CheckBox
+                android:id="@+id/valid_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/cme_check"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:buttonTint="@color/dark_gray"
+                android:text="Add Form Validation"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <CheckBox
+                android:id="@+id/add_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/cme_check"
+                android:layout_alignStart="@+id/valid_check"
+                android:buttonTint="@color/dark_gray"
+                android:text="Allow Add Users"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <CheckBox
+                android:id="@+id/cme_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/add_check"
+                android:layout_centerVertical="true"
+                android:buttonTint="@color/dark_gray"
+                android:text="Allow Print CME"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <CheckBox
+                android:id="@+id/update_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+
+                android:layout_alignStart="@+id/cme_check"
+                android:layout_below="@+id/cme_check"
+                android:layout_marginTop="14dp"
+                android:buttonTint="@color/dark_gray"
+                android:text="Allow Update Doctors"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <RadioGroup
+
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/cme_check"
+                android:layout_below="@+id/update_check"
+                android:layout_marginEnd="27dp">
+
+                <RadioButton
+                    android:id="@+id/admin_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/edit_btn"
+                    android:layout_below="@+id/edit_btn"
+                    android:layout_marginTop="48dp"
+                    android:layout_weight="1"
+                    android:text="Admin"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/user_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="User"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/edit_btn"
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/type"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="48dp"
+                android:text="Edit" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/edit_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?android:attr/colorEdgeEffect"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+             />
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

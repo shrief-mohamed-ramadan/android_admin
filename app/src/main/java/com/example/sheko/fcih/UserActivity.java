@@ -41,8 +41,9 @@ public class UserActivity extends AppCompatActivity implements OnMenuItemClickLi
     public String[] IP = {"192.168.1.1", "192.168.1.2", "192.168.1.7"};
     public ResultSet rs;
     public Design_manager ds;
-    public String select_users = "select * from user_settings";
-
+    public String select_users = "select username,IP from user_settings";
+    public int pos_username;
+    public ListView userList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,7 @@ public class UserActivity extends AppCompatActivity implements OnMenuItemClickLi
         SetupToolbar();
 
         ds = new Design_manager();
-        final ListView userList = findViewById(R.id.UserList); // assign the list we created here
+        userList = findViewById(R.id.UserList); // assign the list we created here
 
         //initialize menues
 
@@ -86,7 +87,9 @@ public class UserActivity extends AppCompatActivity implements OnMenuItemClickLi
             @Override
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                 //create the menu here and pass position to get the username for operation
+                pos_username = position;
                 ShowMenu(view , R.menu.alter_menu);
+
 
             }
         });
@@ -139,13 +142,13 @@ public class UserActivity extends AppCompatActivity implements OnMenuItemClickLi
                     e.printStackTrace();
                 }
             case R.id.delete_item:
-//                    Delete_user();
+                Delete_user(Design_manager.Users_name.get(pos_username));
                 return true;
             case R.id.edit_item:
-//                edit_user();
+                edit_user(Design_manager.Users_name.get(pos_username));
                 return true;
             case R.id.block_item:
-//                block_user();
+                Block_user(Design_manager.Users_name.get(pos_username));
                 return true;
 
             default:
@@ -160,6 +163,23 @@ public class UserActivity extends AppCompatActivity implements OnMenuItemClickLi
     public void UnblockAll() throws SQLException {
         String unblock_query = "UPDATE user_settings Set block=0 where type !='admin'";
         new Mytask(UserActivity.this,this,0,unblock_query,"Connecting","Unblocking Users .....").execute();
+    }
+    public void Delete_user(String username){
+        String delete_query = "Delete from user_settings where username='"+username+"' and type !='admin'";
+        new Mytask(UserActivity.this,this,0,delete_query,"Connecting","Delete "+username+"  .....").execute();
+        Design_manager.Users_name.remove(pos_username);
+        Design_manager.IPs.remove(pos_username);
+        ds.init_list(userList);
+    }
+    public void Block_user(String username){
+        String delete_query = "Update  user_settings SET block = 1 where username='"+username+"' and type !='admin'";
+        new Mytask(UserActivity.this,this,0,delete_query,"Connecting","Blocking  "+username+"  .....").execute();
+
+    }
+    void edit_user (String username){
+        Intent intent = new Intent(UserActivity.this,Edit_user.class);
+        intent.putExtra("username" , username);
+        startActivity(intent);
     }
 }
 //*********************************************************************

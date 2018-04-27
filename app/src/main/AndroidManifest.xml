@@ -31,6 +31,10 @@
         <activity
             android:name=".add_user"
             android:label="@string/title_activity_add_user"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Edit_user"
+            android:label="@string/title_activity_edit_user"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 

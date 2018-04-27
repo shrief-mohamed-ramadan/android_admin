@@ -5,6 +5,14 @@
     android:layout_height="match_parent">
 
                 <!--Add User Tab-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/add_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <RelativeLayout
         android:id="@+id/Add_User"
         android:layout_width="match_parent"

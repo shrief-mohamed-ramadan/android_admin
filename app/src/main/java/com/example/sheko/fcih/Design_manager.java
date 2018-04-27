@@ -42,8 +42,8 @@ import android.widget.ListView;
 public class Design_manager extends AppCompatActivity {
     public static ArrayList<String> search_items = new ArrayList<String>(10);
     public static final Admin admin = new Admin();
-    public  ArrayList<String> Users_name = new ArrayList<String>(5);
-    public  ArrayList<String> IPs = new ArrayList<String>(5);
+    public  static ArrayList<String> Users_name = new ArrayList<String>(5);
+    public  static ArrayList<String> IPs = new ArrayList<String>(5);
     private Context context;
 
     /*
@@ -298,6 +298,9 @@ public class Design_manager extends AppCompatActivity {
                 count--;
             }
         }
+        init_list(user_list);
+    }
+    void init_list(ListView user_list){
         CustomAdapter custom = new CustomAdapter();
         user_list.setAdapter(custom);
     }
