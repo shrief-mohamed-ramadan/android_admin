@@ -58,7 +58,7 @@ public class Database {
             return rs;
         } catch (Exception e) {
 
-
+            Log.w("Select query",e);
         }
         return rs;
     }//end select query
@@ -73,7 +73,7 @@ public class Database {
 
             ste.executeUpdate(query);
         } catch (Exception e) {
-
+            Log.w("Update_queyr",e);
         }
     }//end update query
     //function to connect to speific database

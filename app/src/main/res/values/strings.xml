@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Conference Managment</string>
+    <string name="add_user">Add User</string>
+    <string name="UnBlockAll">UnBlock All</string>
+    <string name="BlockAll">Block All</string>
+    <string name="edit_user">Edit</string>
+    <string name="del_user">Delete</string>
+    <string name="block_user">Block</string>
+    <string name="title_activity_add_user">add_user</string>
 </resources>

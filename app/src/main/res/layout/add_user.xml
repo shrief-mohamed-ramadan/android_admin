@@ -5,110 +5,127 @@
     android:layout_height="match_parent">
 
                 <!--Add User Tab-->
-                <RelativeLayout
-                    android:id="@+id/Add_User"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/gradient">
+    <RelativeLayout
+        android:id="@+id/Add_User"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient">
 
-                    <EditText
-                        android:id="@+id/user_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="53dp"
-                        android:textColor="@color/dark_gray"
-                        style="@style/edittext_style"
-                        android:hint="New Name"
-                        android:inputType="textPersonName"
-                        android:drawableLeft="@drawable/ic_person_black_24dp"
-                        android:drawablePadding="10dp"/>
+        <EditText
+            android:id="@+id/user_name"
+            style="@style/edittext_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="53dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="New Name"
+            android:inputType="textPersonName"
+            android:textColor="@color/dark_gray" />
 
-                    <EditText
-                        android:id="@+id/user_pass"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="25dp"
-                        android:textColor="@color/dark_gray"
-                        android:hint="New Password"
-                        android:inputType="textPassword"
-                        android:layout_below="@+id/user_name"
-                        android:layout_alignStart="@+id/user_name"
-                        android:drawableLeft="@drawable/ic_lock_black_24dp"
-                        style="@style/edittext_style"
-                        android:drawablePadding="10dp"/>
+        <EditText
+            android:id="@+id/user_pass"
+            style="@style/edittext_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/user_name"
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="25dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
+            android:hint="New Password"
+            android:inputType="textPassword"
+            android:textColor="@color/dark_gray" />
 
-                    <CheckBox
-                        android:id="@+id/add_validation_check"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/user_pass"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="37dp"
-                        android:textColor="@color/white"
-                        android:buttonTint="@color/dark_gray"
-                        android:text="Add Form Validation"
-                        android:textSize="18dp" />
+        <CheckBox
+            android:id="@+id/add_validation_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_pass"
+            android:layout_centerHorizontal="true"
+            android:buttonTint="@color/dark_gray"
+            android:text="Add Form Validation"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
 
-                    <CheckBox
-                        android:id="@+id/Allow_addusers_check"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/add_validation_check"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/white"
-                        android:buttonTint="@color/dark_gray"
-                        android:text="Allow Add Users"
-                        android:textSize="18dp"
-                        android:layout_alignStart="@+id/add_validation_check"
-                        android:layout_alignEnd="@+id/add_validation_check" />
+        <CheckBox
+            android:id="@+id/Allow_addusers_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/add_validation_check"
+            android:layout_alignStart="@+id/add_validation_check"
+            android:layout_below="@+id/add_validation_check"
+            android:layout_marginTop="10dp"
+            android:buttonTint="@color/dark_gray"
+            android:text="Allow Add Users"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
 
-                    <CheckBox
-                    android:id="@+id/Allow_printcme_check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/Allow_addusers_check"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/white"
-                    android:buttonTint="@color/dark_gray"
-                    android:text="Allow Print CME"
-                    android:textSize="18dp"
-                    android:layout_alignStart="@+id/add_validation_check"
-                    android:layout_alignEnd="@+id/add_validation_check" />
+        <CheckBox
+            android:id="@+id/Allow_printcme_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/Allow_addusers_check"
+            android:layout_below="@+id/Allow_addusers_check"
+            android:buttonTint="@color/dark_gray"
+            android:text="Allow Print CME"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
 
-                    <RadioGroup
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/Allow_printcme_check"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="20dp"
-                        android:id="@+id/radioGroup">
-                        <RadioButton android:id="@+id/admin_choice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Admin"
-                            android:textColor="@color/dark_gray"
-                            android:textStyle="bold"
-                            android:textSize="20dp"/>
-                        <RadioButton android:id="@+id/user_choice"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="User"
-                            android:textColor="@color/dark_gray"
-                            android:textStyle="bold"
-                            android:textSize="20dp"/>
-                    </RadioGroup>
+        <CheckBox
+            android:id="@+id/allow_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-                    <Button
-                        android:id="@+id/add_bt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/radioGroup"
-                        android:layout_below="@+id/radioGroup"
-                        android:layout_marginTop="11dp"
-                        android:text="Add"
-                        style="@style/button_style"/>
 
-                </RelativeLayout>
+            android:layout_alignStart="@+id/Allow_printcme_check"
+            android:layout_below="@+id/Allow_printcme_check"
+            android:buttonTint="@color/dark_gray"
+            android:text="Allow Update Doctors"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <RadioGroup
+
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/allow_update"
+            android:layout_centerHorizontal="true">
+
+            <RadioButton
+                android:id="@+id/admin_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/add_bt"
+                android:layout_below="@+id/add_bt"
+                android:layout_marginTop="48dp"
+                android:layout_weight="1"
+                android:text="Admin"
+                android:textColor="@color/dark_gray"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/user_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User"
+                android:textColor="@color/dark_gray"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/add_bt"
+            style="@style/button_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/radioGroup"
+            android:layout_below="@+id/radioGroup"
+            android:text="Add" />
+
+    </RelativeLayout>
 </LinearLayout>
