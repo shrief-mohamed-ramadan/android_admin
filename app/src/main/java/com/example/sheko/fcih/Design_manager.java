@@ -1,14 +1,10 @@
 package com.example.sheko.fcih;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,17 +17,10 @@ import android.widget.PopupWindow;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.sql.Array;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import android.widget.ListView;
 
 /**
  * Created by Sheko on 4/18/2018.
@@ -109,7 +98,7 @@ public class Design_manager extends AppCompatActivity {
                 column_name.setText(data.get(0).get(c));
                 column_name.setTextSize(header_text_size);
                 column_name.setBackgroundResource(background_header);
-                column_name.setTextColor(app_context.getResources().getColor(text_color_header, null));
+                column_name.setTextColor(Color.WHITE);
                 column_name.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 column_name.setPadding(padding_header_left, padding_header_top, padding_header_right, padding_header_bottom);
                 header_column.addView(column_name);
@@ -152,14 +141,14 @@ public class Design_manager extends AppCompatActivity {
                             @Override
                             public void onClick(View v) {
                                 //function call here
-                                admin.call_doctor(user_column.getText().toString());
+                                admin.call_doctor(user_column.getText().toString(),app_context);
                             }
                         });
                     }
                     //create attend action
                     else if (data.get(0).get(column).equals(attend_column))
                     {
-                        if(data.get(row).get(column)=="0")
+                        if(data.get(row).get(column).equals("0"))
                         {
                             user_column.setText("OFF");
                             user_column.setBackgroundResource(off_color);
@@ -169,19 +158,19 @@ public class Design_manager extends AppCompatActivity {
                             user_column.setText("ON");
                             user_column.setBackgroundResource(on_color);
                         }
-                        user_column.setTextColor(app_context.getResources().getColor(text_color_header , null));
+                        user_column.setTextColor(Color.WHITE);
                         user_column.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 if(user_column.getText().equals("OFF"))
                                 {
-                                    admin.update_doc_attendance(id_doc , 1);
+                                    admin.update_doc_attendance(id_doc , 1,app_context);
                                     user_column.setText("ON");
                                     user_column.setBackgroundResource(on_color);
                                 }
                                 else
                                 {
-                                    admin.update_doc_attendance(id_doc , 0);
+                                    admin.update_doc_attendance(id_doc , 0,app_context);
                                     user_column.setText("OFF");
                                     user_column.setBackgroundResource(off_color);
                                 }
@@ -230,7 +219,7 @@ public class Design_manager extends AppCompatActivity {
         }
     }//end function search
     /*************************************************************************************************************/
-    public static void generate_edit_frame(Context app_contex , View v , String value , final String column_name ,final String id_doc , final TextView user_column)
+    public static void generate_edit_frame(final Context app_contex , View v , String value , final String column_name , final String id_doc , final TextView user_column)
     {
         final PopupWindow popup = new PopupWindow(app_contex);
         LayoutInflater inflater = (LayoutInflater) app_contex.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -247,7 +236,7 @@ public class Design_manager extends AppCompatActivity {
             public void onClick(View v) {
                 //call edit function
                 String new_value = edit_Tex.getText().toString();
-                admin.edit_doc(new_value , column_name , id_doc);
+                admin.edit_doc(new_value , column_name , id_doc ,app_contex);
                 user_column.setText(new_value);
                 layout.setVisibility(View.GONE);
             }
@@ -278,7 +267,7 @@ public class Design_manager extends AppCompatActivity {
                 EditText doc_mobile = (EditText)layout.findViewById(R.id.mobile);
                 EditText doc_sponsor = (EditText)layout.findViewById(R.id.sponsor);
                 EditText doc_email = (EditText)layout.findViewById(R.id.mail);
-                admin.add_doctor(doc_name.getText().toString() , doc_mobile.getText().toString() , doc_sponsor.getText().toString(),doc_email.getText().toString());
+                admin.add_doctor(doc_name.getText().toString() , doc_mobile.getText().toString() , doc_sponsor.getText().toString(),doc_email.getText().toString(),app_contex);
                 layout.setVisibility(View.GONE);
             }
         });

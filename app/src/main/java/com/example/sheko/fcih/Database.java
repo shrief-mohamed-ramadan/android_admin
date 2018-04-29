@@ -80,11 +80,14 @@ public class Database {
 
     public void connectToCloud() {
         try {
+            Log.w("cn","jjj");
             CLOUD = "jdbc:mysql://" + CLOUD_info[0] + "/" + CLOUD_info[1] + "?characterEncoding=utf8";
             this.cn = DriverManager.getConnection(CLOUD, CLOUD_info[2], CLOUD_info[3]);
             Connected = true;
             isCloud = true; // used to know if it' success to access cloud
+//            Log.w("cn","jjj");
         } catch (Exception ex) {
+            Log.w("cn",ex);
             Connected = false;
         }
     }
