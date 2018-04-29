@@ -17,7 +17,7 @@ public class home_activity extends AppCompatActivity {
         users.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getApplicationContext().startActivity(new Intent(getApplicationContext(), UserActivity.class));
+                home_activity.this.startActivity(new Intent(getApplicationContext(), UserActivity.class));
             }
         });
 
@@ -26,7 +26,15 @@ public class home_activity extends AppCompatActivity {
         docs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getApplicationContext().startActivity(new Intent(getApplicationContext(), doc_list_activity.class));
+                home_activity.this.startActivity(new Intent(getApplicationContext(), doc_list_activity.class));
+            }
+        });
+
+        ImageView settings = (ImageView)findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home_activity.this.startActivity(new Intent(getApplicationContext(),Connection_view.class));
             }
         });
     }
